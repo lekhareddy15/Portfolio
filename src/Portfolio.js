@@ -48,7 +48,7 @@ const Portfolio = () => {
   // CV Download function
   const downloadCV = () => {
     const link = document.createElement('a');
-    link.href = '/Lekha_Reddy_Surakanti.pdf';
+    link.href = '/Lekha_Reddy_Surakanti__.pdf';
     link.download = 'Lekha_Reddy_Surakanti_Resume.pdf';
     document.body.appendChild(link);
     link.click();
@@ -102,6 +102,7 @@ const Portfolio = () => {
   const projects = [
     {
       title: "Customer Sentiment Analysis Platform",
+      image: "/project1.jpg",
       tech: "Python, ML, SQL, Data Pipelines, Data Visualization, Streamlit, ETL",
       period: "Sep 2024 - Dec 2024",
       description: "Developed a data-driven analytics tool enabling informed product strategy decisions.",
@@ -113,6 +114,7 @@ const Portfolio = () => {
     },
     {
       title: "Retail Analytics Platform",
+      image: "/project2.jpg",
       tech: "Azure, Python, ML, SQL, Data Pipelines",
       period: "Sep 2024 - Dec 2024",
       description: "Architected an end-to-end retail analytics platform on Azure to analyze customer engagement and purchasing behavior. Developed machine learning models to predict Customer Lifetime Value (CLV) and customer churn with improved accuracy.",
@@ -124,6 +126,7 @@ const Portfolio = () => {
     },
     {
       title: "Blockchain ATM",
+      image: "/project3.jpg",
       tech: "Node.js, React.js, MongoDB, Flutter, Solidity",
       period: "Feb 2023 - May 2023",
       description: "Developed a mobile application enabling secure cryptocurrency exchange and real-time display of prices. Implemented transaction processing through secure digital wallets via QR code scanning.",
@@ -444,8 +447,12 @@ const Portfolio = () => {
                   } transition-all duration-500 transform hover:scale-105 hover:shadow-2xl flex flex-col animate-slideUp`}
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className={`h-48 bg-gradient-to-br ${project.gradient} flex items-center justify-center`}>
-                  <span className="text-6xl font-bold text-white opacity-50">{index + 1}</span>
+                <div className={`relative h-48 bg-gradient-to-br ${project.gradient} flex items-center justify-center overflow-hidden`}>
+                  {project.image ? (
+                    <img src={project.image} alt={project.title} className="absolute inset-0 w-full h-full object-cover" />
+                  ) : (
+                    <span className="text-6xl font-bold text-white opacity-50">{index + 1}</span>
+                  )}
                 </div>
 
                 <div className="p-6 flex flex-col flex-grow">
@@ -485,8 +492,12 @@ const Portfolio = () => {
                     >
                       <div className={`rounded-xl overflow-hidden ${isDark ? 'bg-gray-900' : 'bg-gray-50'} border ${isDark ? 'border-gray-700' : 'border-gray-200'
                         } shadow-xl`}>
-                        <div className={`h-56 bg-gradient-to-br ${project.gradient} flex items-center justify-center`}>
-                          <span className="text-8xl font-bold text-white opacity-50">{index + 1}</span>
+                        <div className={`relative h-56 bg-gradient-to-br ${project.gradient} flex items-center justify-center overflow-hidden`}>
+                          {project.image ? (
+                            <img src={project.image} alt={project.title} className="absolute inset-0 w-full h-full object-cover" />
+                          ) : (
+                            <span className="text-8xl font-bold text-white opacity-50">{index + 1}</span>
+                          )}
                         </div>
 
                         <div className="p-6">
